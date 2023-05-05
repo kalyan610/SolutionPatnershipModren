@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "solution-patnership-modren-client-side-solution",
+    "id": "ef912cee-97e3-48f8-a9f5-debe5c9d10a4",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.16.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "SolutionPatnershipModren description"
+      },
+      "longDescription": {
+        "default": "SolutionPatnershipModren description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "solution-patnership-modren Feature",
+        "description": "The feature that activates elements of the solution-patnership-modren solution.",
+        "id": "716f80bc-662a-4f3b-838f-4f6965f18ca9",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/solution-patnership-modren.sppkg"
+  }
+}
