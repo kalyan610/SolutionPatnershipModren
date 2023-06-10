@@ -598,7 +598,7 @@ if(this.state.solutionpatnercompany==null || this.state.solutionpatnercompany=='
   }
 
   
-  else if(this.state.arragment==null || this.state.arragment=="")
+else if(this.state.arragment==null || this.state.arragment=="")
   {
 
     alert('Please Select Type of Arrangement');
@@ -606,49 +606,27 @@ if(this.state.solutionpatnercompany==null || this.state.solutionpatnercompany=='
 
   }
 
+else if(this.state.arragment=='TA' || this.state.arragment=='PA')
+{
 
-
- else if(this.state.arragment=='IA' || this.state.arragment=='RA')
-  {
-
-   if(this.state.refearalfee=="")
-   {
-
-    alert('Please Select Referral Fee');
-    this.setState({ flag: false });
-   }
-
-   else if(this.state.capcoorpatner=="")
-   {
-
-    alert('Please Select Capco or Partner');
-    this.setState({ flag: false });
-   }
-
-else if(this.state.arragmnetplace==null || this.state.arragmnetplace=="")
+if(this.state.arragmnetplace==null || this.state.arragmnetplace=="")
 {
 
    alert('Please select arrangment place');
    this.setState({ flag: false });
 
 }
-else if(this.state.arrangmentplacetext=="Country")
- {
 
-if(this.state.countryval=='')
- {
+else if(this.state.arragmnetplace=='Glb')
+{
 
-alert('please select country');
-}
-
-else if(this.state.bca==null || this.state.bca=="")
+if(this.state.bca==null || this.state.bca=="")
 {
 
   alert('Please enter Bussiness Arrangement');
   this.setState({ flag: false });
 
 }
-
 
 else if(this.state.estimatedvalarranment==null || this.state.estimatedvalarranment=="")
 {
@@ -658,7 +636,7 @@ else if(this.state.estimatedvalarranment==null || this.state.estimatedvalarranme
 
 }
 
-else   if (this.state.currval == null || this.state.currval == 'Select  Currency Value'|| this.state.currval == "") {
+else if (this.state.currval == null || this.state.currval == 'Select  Currency Value'|| this.state.currval == "") {
 
 alert('Please select  currency Value');
 this.setState({ flag: false });         
@@ -697,145 +675,7 @@ else if(this.state.FileValue.length==0)
 else
 {
 
-  
-alert('Great');
-
-
-let date = new Date();
-
-date.setDate(this.state.dtcontactdate.getDate());;
-
-let month= (this.state.dtcontactdate.getMonth()+1);
-
-let year =(this.state.dtcontactdate.getFullYear());
-
-let contractdate=this.state.dtcontactdate.getDate()+'/' + month +'/' +year;
-
-
-let date1 = new Date();
-
-date1.setDate(this.state.dtcontractEndDate.getDate());;
-
-let month1= (this.state.dtcontractEndDate.getMonth()+1);
-
-let year1 =(this.state.dtcontractEndDate.getFullYear());
-
-let contractEnddate=this.state.dtcontractEndDate.getDate()+'/' + month1 +'/' +year1;
-
-let myfiles=[];
-
-for(var count=0;count<this.state.FileValue.length;count++)
-{
-  
-  myfiles.push(this.state.FileValue[count]);
-}
-
-
-this._service.Save(
-this.state.solutionpatnercompany,
-(this.state.uservalsubmitter == null ? 0:this.state.uservalsubmitter.Id),
-(this.state.uservalpatnersponsor == null ? 0:this.state.uservalpatnersponsor.Id),
-(this.state.uservalRelationManager == null ? 0:this.state.uservalRelationManager.Id),
-this.state.arrangmenttext,
-this.state.refearalfee,
-this.state.capcoorpatner,
-this.state.arrangmentplacetext,
-(this.state.globalval==""?0:this.state.globalval),
-(this.state.countryval==""?0:this.state.countryval),
-this.state.bca,
-this.state.estimatedvalarranment,
-(this.state.currval==""?0:this.state.currval),
-contractdate,
-contractEnddate,
-this.state.logotext,
-
-this.state.addcomments,
-myfiles).then(function (data:any)
-{
-  console.log(data);
-
-  alert('Record submitted successfully');
-
-  //window.location.replace("https://capcoinc.sharepoint.com/sites/SolutionPatnership_Modren_Dev/");
-
-
-       
-});
-
-
-
-}
-
-
-
-}
-
-else if(this.state.arrangmentplacetext=="Regional")
-  {
-
-    if(this.state.globalval=='')
-    {
-
-      alert('please select Region');
-    }
-
-    else if(this.state.bca==null || this.state.bca=="")
-    {
-  
-      alert('Please enter Bussiness Arrangement');
-      this.setState({ flag: false });
-  
-    }
-  
-    
-    else if(this.state.estimatedvalarranment==null || this.state.estimatedvalarranment=="")
-    {
-  
-      alert('Please enter Estimated value of Arrangement');
-      this.setState({ flag: false });
-  
-    }
-  
-  else   if (this.state.currval == null || this.state.currval == 'Select  Currency Value'|| this.state.currval == "") {
-  
-    alert('Please select  currency Value');
-    this.setState({ flag: false });         
-          
-    }
-  
-    else if(this.state.dtcontactdate==null)
-    {
-  
-      alert('Please Select Contract Signed Date');
-      this.setState({ flag: false });
-  
-    }
-  
-    else if(this.state.dtcontractEndDate==null)
-    {
-  
-      alert('Please Select Contract End Date');
-      this.setState({ flag: false });
-  
-    }
-    else if(this.state.logo==null|| this.state.logo=="")
-    {
-      alert('Please select logo');
-      this.setState({ flag: false });
-  
-    }
-  
-    else if(this.state.FileValue.length==0)
-    {
-  
-      alert('Please upload attachment');
-      this.setState({ flag: false });
-    }
-
-    else
-    {
-
-      
+ 
     alert('Great');
 
   
@@ -894,87 +734,158 @@ else if(this.state.arrangmentplacetext=="Regional")
 
       alert('Record submitted successfully');
 
-      //window.location.replace("https://capcoinc.sharepoint.com/sites/SolutionPatnership_Modren_Dev/");
-    
+      window.location.replace("https://capcoinc.sharepoint.com/sites/SolutionPartnershipDatabaseSubmission/SitePages/Solution-Partnership-Arr.aspx");
+  
 
            
     });
 
-
-    }
-  
    
+  
 
+}
+
+
+}
+
+else if(this.state.arragmnetplace=='reg')
+{
+
+  if(this.state.globalval=='')
+    {
+
+      alert('please select Region');
   }
 
-  else if(this.state.bca==null || this.state.bca=="")
-  {
+else if(this.state.bca==null || this.state.bca=="")
+{
 
-    alert('Please enter Bussiness Arrangement');
-    this.setState({ flag: false });
+  alert('Please enter Bussiness Arrangement');
+  this.setState({ flag: false });
 
-  }
+}
+
+else if(this.state.estimatedvalarranment==null || this.state.estimatedvalarranment=="")
+{
+
+  alert('Please enter Estimated value of Arrangement');
+  this.setState({ flag: false });
+
+}
+
+else if (this.state.currval == null || this.state.currval == 'Select  Currency Value'|| this.state.currval == "") {
+
+alert('Please select  currency Value');
+this.setState({ flag: false });         
+      
+}
+
+else if(this.state.dtcontactdate==null)
+{
+
+  alert('Please Select Contract Signed Date');
+  this.setState({ flag: false });
+
+}
+
+else if(this.state.dtcontractEndDate==null)
+{
+
+  alert('Please Select Contract End Date');
+  this.setState({ flag: false });
+
+}
+else if(this.state.logo==null|| this.state.logo=="")
+{
+  alert('Please select logo');
+  this.setState({ flag: false });
+
+}
+
+else if(this.state.FileValue.length==0)
+{
+
+  alert('Please upload attachment');
+  this.setState({ flag: false });
+}
+
+else
+{
+
+ 
+    alert('Great');
 
   
-  else if(this.state.estimatedvalarranment==null || this.state.estimatedvalarranment=="")
-  {
+    let date = new Date();
 
-    alert('Please enter Estimated value of Arrangement');
-    this.setState({ flag: false });
+    date.setDate(this.state.dtcontactdate.getDate());;
 
-  }
+    let month= (this.state.dtcontactdate.getMonth()+1);
 
-else   if (this.state.currval == null || this.state.currval == 'Select  Currency Value'|| this.state.currval == "") {
+    let year =(this.state.dtcontactdate.getFullYear());
 
-  alert('Please select  currency Value');
-  this.setState({ flag: false });         
-        
-  }
+    let contractdate=this.state.dtcontactdate.getDate()+'/' + month +'/' +year;
 
-  else if(this.state.dtcontactdate==null)
-  {
 
-    alert('Please Select Contract Signed Date');
-    this.setState({ flag: false });
+    let date1 = new Date();
 
-  }
+    date1.setDate(this.state.dtcontractEndDate.getDate());;
 
-  else if(this.state.dtcontractEndDate==null)
-  {
+    let month1= (this.state.dtcontractEndDate.getMonth()+1);
 
-    alert('Please Select Contract End Date');
-    this.setState({ flag: false });
+    let year1 =(this.state.dtcontractEndDate.getFullYear());
 
-  }
-  else if(this.state.logo==null|| this.state.logo=="")
-  {
-    alert('Please select logo');
-    this.setState({ flag: false });
+    let contractEnddate=this.state.dtcontractEndDate.getDate()+'/' + month1 +'/' +year1;
 
-  }
+    let myfiles=[];
 
-  else if(this.state.FileValue.length==0)
-  {
-
-    alert('Please upload attachment');
-    this.setState({ flag: false });
-  }
-
-  }
-
-  else if(this.state.arragment=='PA' || this.state.arragment=='TA')
-  {
-
-    if(this.state.arragmnetplace==null || this.state.arragmnetplace=="")
+    for(var count=0;count<this.state.FileValue.length;count++)
     {
-    
-       alert('Please select arrangment place');
-       this.setState({ flag: false });
-    
-     }
+      
+      myfiles.push(this.state.FileValue[count]);
+    }
 
-else if(this.state.arrangmentplacetext=="Country")
- {
+   
+    this._service.Save(
+    this.state.solutionpatnercompany,
+    (this.state.uservalsubmitter == null ? 0:this.state.uservalsubmitter.Id),
+    (this.state.uservalpatnersponsor == null ? 0:this.state.uservalpatnersponsor.Id),
+    (this.state.uservalRelationManager == null ? 0:this.state.uservalRelationManager.Id),
+    this.state.arrangmenttext,
+    this.state.refearalfee,
+    this.state.capcoorpatner,
+    this.state.arrangmentplacetext,
+    (this.state.globalval==""?0:this.state.globalval),
+    (this.state.countryval==""?0:this.state.countryval),
+    this.state.bca,
+    this.state.estimatedvalarranment,
+    (this.state.currval==""?0:this.state.currval),
+    contractdate,
+    contractEnddate,
+    this.state.logotext,
+    
+    this.state.addcomments,
+    myfiles).then(function (data:any)
+    {
+      console.log(data);
+
+      alert('Record submitted successfully');
+
+      window.location.replace("https://capcoinc.sharepoint.com/sites/SolutionPartnershipDatabaseSubmission/SitePages/Solution-Partnership-Arr.aspx");
+  
+
+           
+    });
+
+   
+  
+
+}
+
+}
+
+else if(this.state.arragmnetplace=='cnt')
+{
 
 if(this.state.countryval=='')
  {
@@ -982,80 +893,62 @@ if(this.state.countryval=='')
 alert('please select country');
 }
 
+else if(this.state.bca==null || this.state.bca=="")
+{
+
+  alert('Please enter Bussiness Arrangement');
+  this.setState({ flag: false });
 
 }
 
-else if(this.state.arrangmentplacetext=="Regional")
-  {
+else if(this.state.estimatedvalarranment==null || this.state.estimatedvalarranment=="")
+{
 
-    if(this.state.globalval=='')
-    {
+  alert('Please enter Estimated value of Arrangement');
+  this.setState({ flag: false });
 
-      alert('please select Region');
-    }
-  }
+}
 
-  else if(this.state.bca==null || this.state.bca=="")
-  {
+else if (this.state.currval == null || this.state.currval == 'Select  Currency Value'|| this.state.currval == "") {
 
-    alert('Please enter Bussiness Arrangement');
-    this.setState({ flag: false });
+alert('Please select  currency Value');
+this.setState({ flag: false });         
+      
+}
 
-  }
+else if(this.state.dtcontactdate==null)
+{
 
-  
-  else if(this.state.estimatedvalarranment==null || this.state.estimatedvalarranment=="")
-  {
+  alert('Please Select Contract Signed Date');
+  this.setState({ flag: false });
 
-    alert('Please enter Estimated value of Arrangement');
-    this.setState({ flag: false });
+}
 
-  }
+else if(this.state.dtcontractEndDate==null)
+{
 
-else   if (this.state.currval == null || this.state.currval == 'Select  Currency Value'|| this.state.currval == "") {
+  alert('Please Select Contract End Date');
+  this.setState({ flag: false });
 
-  alert('Please select  currency Value');
-  this.setState({ flag: false });         
-        
-  }
+}
+else if(this.state.logo==null|| this.state.logo=="")
+{
+  alert('Please select logo');
+  this.setState({ flag: false });
 
-  else if(this.state.dtcontactdate==null)
-  {
+}
 
-    alert('Please Select Contract Signed Date');
-    this.setState({ flag: false });
+else if(this.state.FileValue.length==0)
+{
 
-  }
+  alert('Please upload attachment');
+  this.setState({ flag: false });
+}
 
-  else if(this.state.dtcontractEndDate==null)
-  {
+else
+{
 
-    alert('Please Select Contract End Date');
-    this.setState({ flag: false });
-
-  }
-  else if(this.state.logo==null|| this.state.logo=="")
-  {
-    alert('Please select logo');
-    this.setState({ flag: false });
-
-  }
-
-  else if(this.state.FileValue.length==0)
-  {
-
-    alert('Please upload attachment');
-    this.setState({ flag: false });
-  }
-
-
-  
-  }
-
-
-  else
-  {
-
+ 
     alert('Great');
 
   
@@ -1114,14 +1007,472 @@ else   if (this.state.currval == null || this.state.currval == 'Select  Currency
 
       alert('Record submitted successfully');
 
-      window.location.replace("https://capcoinc.sharepoint.com/sites/SolutionPatnership_Modren_Dev/");
+      window.location.replace("https://capcoinc.sharepoint.com/sites/SolutionPartnershipDatabaseSubmission/SitePages/Solution-Partnership-Arr.aspx");
   
 
            
     });
 
    
+  
+
+}
+
+
+
+
+}
+
+
+
+}
+
+ else if(this.state.arragment=='IA' || this.state.arragment=='RA')
+  {
+
+    if(this.state.refearalfee=="")
+   {
+
+    alert('Please Select Referral Fee');
+    this.setState({ flag: false });
+   }
+
+   else if(this.state.capcoorpatner=="")
+   {
+
+    alert('Please Select Capco or Partner');
+    this.setState({ flag: false });
+   }
+
+
+else if(this.state.arragmnetplace==null || this.state.arragmnetplace=="")
+{
+
+  alert('Please select arrangment place');
+  this.setState({ flag: false });
+
+}
+
+else if(this.state.arragmnetplace=='Glb')
+{
+
+if(this.state.bca==null || this.state.bca=="")
+{
+
+  alert('Please enter Bussiness Arrangement');
+  this.setState({ flag: false });
+
+}
+
+else if(this.state.estimatedvalarranment==null || this.state.estimatedvalarranment=="")
+{
+
+  alert('Please enter Estimated value of Arrangement');
+  this.setState({ flag: false });
+
+}
+
+else if (this.state.currval == null || this.state.currval == 'Select  Currency Value'|| this.state.currval == "") {
+
+alert('Please select  currency Value');
+this.setState({ flag: false });         
+      
+}
+
+else if(this.state.dtcontactdate==null)
+{
+
+  alert('Please Select Contract Signed Date');
+  this.setState({ flag: false });
+
+}
+
+else if(this.state.dtcontractEndDate==null)
+{
+
+  alert('Please Select Contract End Date');
+  this.setState({ flag: false });
+
+}
+else if(this.state.logo==null|| this.state.logo=="")
+{
+  alert('Please select logo');
+  this.setState({ flag: false });
+
+}
+
+else if(this.state.FileValue.length==0)
+{
+
+  alert('Please upload attachment');
+  this.setState({ flag: false });
+}
+
+else
+{
+
+ 
+    alert('Great');
+
+  
+    let date = new Date();
+
+    date.setDate(this.state.dtcontactdate.getDate());;
+
+    let month= (this.state.dtcontactdate.getMonth()+1);
+
+    let year =(this.state.dtcontactdate.getFullYear());
+
+    let contractdate=this.state.dtcontactdate.getDate()+'/' + month +'/' +year;
+
+
+    let date1 = new Date();
+
+    date1.setDate(this.state.dtcontractEndDate.getDate());;
+
+    let month1= (this.state.dtcontractEndDate.getMonth()+1);
+
+    let year1 =(this.state.dtcontractEndDate.getFullYear());
+
+    let contractEnddate=this.state.dtcontractEndDate.getDate()+'/' + month1 +'/' +year1;
+
+    let myfiles=[];
+
+    for(var count=0;count<this.state.FileValue.length;count++)
+    {
+      
+      myfiles.push(this.state.FileValue[count]);
+    }
+
+   
+    this._service.Save(
+    this.state.solutionpatnercompany,
+    (this.state.uservalsubmitter == null ? 0:this.state.uservalsubmitter.Id),
+    (this.state.uservalpatnersponsor == null ? 0:this.state.uservalpatnersponsor.Id),
+    (this.state.uservalRelationManager == null ? 0:this.state.uservalRelationManager.Id),
+    this.state.arrangmenttext,
+    this.state.refearalfee,
+    this.state.capcoorpatner,
+    this.state.arrangmentplacetext,
+    (this.state.globalval==""?0:this.state.globalval),
+    (this.state.countryval==""?0:this.state.countryval),
+    this.state.bca,
+    this.state.estimatedvalarranment,
+    (this.state.currval==""?0:this.state.currval),
+    contractdate,
+    contractEnddate,
+    this.state.logotext,
+    
+    this.state.addcomments,
+    myfiles).then(function (data:any)
+    {
+      console.log(data);
+
+      alert('Record submitted successfully');
+
+      window.location.replace("https://capcoinc.sharepoint.com/sites/SolutionPartnershipDatabaseSubmission/SitePages/Solution-Partnership-Arr.aspx");
+  
+
+           
+    });
+
+   
+  
+
+}
+
+
+}
+
+else if(this.state.arragmnetplace=='reg')
+{
+
+  if(this.state.globalval=='')
+    {
+
+      alert('please select Region');
   }
+
+else if(this.state.bca==null || this.state.bca=="")
+{
+
+  alert('Please enter Bussiness Arrangement');
+  this.setState({ flag: false });
+
+}
+
+else if(this.state.estimatedvalarranment==null || this.state.estimatedvalarranment=="")
+{
+
+  alert('Please enter Estimated value of Arrangement');
+  this.setState({ flag: false });
+
+}
+
+else if (this.state.currval == null || this.state.currval == 'Select  Currency Value'|| this.state.currval == "") {
+
+alert('Please select  currency Value');
+this.setState({ flag: false });         
+      
+}
+
+else if(this.state.dtcontactdate==null)
+{
+
+  alert('Please Select Contract Signed Date');
+  this.setState({ flag: false });
+
+}
+
+else if(this.state.dtcontractEndDate==null)
+{
+
+  alert('Please Select Contract End Date');
+  this.setState({ flag: false });
+
+}
+else if(this.state.logo==null|| this.state.logo=="")
+{
+  alert('Please select logo');
+  this.setState({ flag: false });
+
+}
+
+else if(this.state.FileValue.length==0)
+{
+
+  alert('Please upload attachment');
+  this.setState({ flag: false });
+}
+
+else
+{
+
+ 
+    alert('Great');
+
+  
+    let date = new Date();
+
+    date.setDate(this.state.dtcontactdate.getDate());;
+
+    let month= (this.state.dtcontactdate.getMonth()+1);
+
+    let year =(this.state.dtcontactdate.getFullYear());
+
+    let contractdate=this.state.dtcontactdate.getDate()+'/' + month +'/' +year;
+
+
+    let date1 = new Date();
+
+    date1.setDate(this.state.dtcontractEndDate.getDate());;
+
+    let month1= (this.state.dtcontractEndDate.getMonth()+1);
+
+    let year1 =(this.state.dtcontractEndDate.getFullYear());
+
+    let contractEnddate=this.state.dtcontractEndDate.getDate()+'/' + month1 +'/' +year1;
+
+    let myfiles=[];
+
+    for(var count=0;count<this.state.FileValue.length;count++)
+    {
+      
+      myfiles.push(this.state.FileValue[count]);
+    }
+
+   
+    this._service.Save(
+    this.state.solutionpatnercompany,
+    (this.state.uservalsubmitter == null ? 0:this.state.uservalsubmitter.Id),
+    (this.state.uservalpatnersponsor == null ? 0:this.state.uservalpatnersponsor.Id),
+    (this.state.uservalRelationManager == null ? 0:this.state.uservalRelationManager.Id),
+    this.state.arrangmenttext,
+    this.state.refearalfee,
+    this.state.capcoorpatner,
+    this.state.arrangmentplacetext,
+    (this.state.globalval==""?0:this.state.globalval),
+    (this.state.countryval==""?0:this.state.countryval),
+    this.state.bca,
+    this.state.estimatedvalarranment,
+    (this.state.currval==""?0:this.state.currval),
+    contractdate,
+    contractEnddate,
+    this.state.logotext,
+    
+    this.state.addcomments,
+    myfiles).then(function (data:any)
+    {
+      console.log(data);
+
+      alert('Record submitted successfully');
+
+      window.location.replace("https://capcoinc.sharepoint.com/sites/SolutionPartnershipDatabaseSubmission/SitePages/Solution-Partnership-Arr.aspx");
+  
+
+           
+    });
+
+   
+  
+
+}
+
+}
+
+else if(this.state.arragmnetplace=='cnt')
+{
+
+if(this.state.countryval=='')
+ {
+
+alert('please select country');
+}
+
+else if(this.state.bca==null || this.state.bca=="")
+{
+
+  alert('Please enter Bussiness Arrangement');
+  this.setState({ flag: false });
+
+}
+
+else if(this.state.estimatedvalarranment==null || this.state.estimatedvalarranment=="")
+{
+
+  alert('Please enter Estimated value of Arrangement');
+  this.setState({ flag: false });
+
+}
+
+else if (this.state.currval == null || this.state.currval == 'Select  Currency Value'|| this.state.currval == "") {
+
+alert('Please select  currency Value');
+this.setState({ flag: false });         
+      
+}
+
+else if(this.state.dtcontactdate==null)
+{
+
+  alert('Please Select Contract Signed Date');
+  this.setState({ flag: false });
+
+}
+
+else if(this.state.dtcontractEndDate==null)
+{
+
+  alert('Please Select Contract End Date');
+  this.setState({ flag: false });
+
+}
+else if(this.state.logo==null|| this.state.logo=="")
+{
+  alert('Please select logo');
+  this.setState({ flag: false });
+
+}
+
+else if(this.state.FileValue.length==0)
+{
+
+  alert('Please upload attachment');
+  this.setState({ flag: false });
+}
+
+else
+{
+
+ 
+    alert('Great');
+
+  
+    let date = new Date();
+
+    date.setDate(this.state.dtcontactdate.getDate());;
+
+    let month= (this.state.dtcontactdate.getMonth()+1);
+
+    let year =(this.state.dtcontactdate.getFullYear());
+
+    let contractdate=this.state.dtcontactdate.getDate()+'/' + month +'/' +year;
+
+
+    let date1 = new Date();
+
+    date1.setDate(this.state.dtcontractEndDate.getDate());;
+
+    let month1= (this.state.dtcontractEndDate.getMonth()+1);
+
+    let year1 =(this.state.dtcontractEndDate.getFullYear());
+
+    let contractEnddate=this.state.dtcontractEndDate.getDate()+'/' + month1 +'/' +year1;
+
+    let myfiles=[];
+
+    for(var count=0;count<this.state.FileValue.length;count++)
+    {
+      
+      myfiles.push(this.state.FileValue[count]);
+    }
+
+   
+    this._service.Save(
+    this.state.solutionpatnercompany,
+    (this.state.uservalsubmitter == null ? 0:this.state.uservalsubmitter.Id),
+    (this.state.uservalpatnersponsor == null ? 0:this.state.uservalpatnersponsor.Id),
+    (this.state.uservalRelationManager == null ? 0:this.state.uservalRelationManager.Id),
+    this.state.arrangmenttext,
+    this.state.refearalfee,
+    this.state.capcoorpatner,
+    this.state.arrangmentplacetext,
+    (this.state.globalval==""?0:this.state.globalval),
+    (this.state.countryval==""?0:this.state.countryval),
+    this.state.bca,
+    this.state.estimatedvalarranment,
+    (this.state.currval==""?0:this.state.currval),
+    contractdate,
+    contractEnddate,
+    this.state.logotext,
+    
+    this.state.addcomments,
+    myfiles).then(function (data:any)
+    {
+      console.log(data);
+
+      alert('Record submitted successfully');
+
+      window.location.replace("https://capcoinc.sharepoint.com/sites/SolutionPartnershipDatabaseSubmission/SitePages/Solution-Partnership-Arr.aspx");
+  
+
+           
+    });
+
+   
+  
+
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+   
+
+  }
+
+
+
+
 
   
   }

@@ -115,7 +115,7 @@ public async Save (SolutionPathnerComapnyName:string,
 
     let file=acceptedFiles;
 
-    let Varmyval= await sp.web.lists.getByTitle("SolutionPartnershipsAdminArchive").items.add({
+    let Varmyval= await sp.web.lists.getByTitle("Solution Partnership Database").items.add({
 
   
     SolutionPartnerCompany:SolutionPathnerComapnyName,
