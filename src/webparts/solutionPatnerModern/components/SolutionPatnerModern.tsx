@@ -29,7 +29,7 @@ const Radiorefearal: IChoiceGroupOption[] =
 [{key: "Yes", text: "Yes"},{key: "No", text: "No"}]
 
 const RadioCapcoorpatner: IChoiceGroupOption[] = 
-[{key: "Capco", text: "Capco"},{key: "Patner", text: "Patner"}]
+[{key: "Capco", text: "Capco"},{key: "partner", text: "partner"}]
 
 const stackButtonStyles: Partial<IStackStyles> = { root: { width: 20 } };
 
