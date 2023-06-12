@@ -676,7 +676,7 @@ else
 {
 
  
-    alert('Great');
+    
 
   
     let date = new Date();
@@ -813,7 +813,7 @@ else
 {
 
  
-    alert('Great');
+   
 
   
     let date = new Date();
@@ -949,7 +949,7 @@ else
 {
 
  
-    alert('Great');
+    
 
   
     let date = new Date();
@@ -1112,7 +1112,7 @@ else
 {
 
  
-    alert('Great');
+    
 
   
     let date = new Date();
@@ -1249,7 +1249,7 @@ else
 {
 
  
-    alert('Great');
+    
 
   
     let date = new Date();
@@ -1385,7 +1385,7 @@ else
 {
 
  
-    alert('Great');
+  
 
   
     let date = new Date();
